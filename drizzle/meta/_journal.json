@@ -8,6 +8,13 @@
       "when": 1786429378581,
       "tag": "0000_lyrical_lionheart",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1786433408909,
+      "tag": "0001_special_dakota_north",
+      "breakpoints": true
     }
   ]
 }

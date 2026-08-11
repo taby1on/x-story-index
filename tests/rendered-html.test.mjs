@@ -2,40 +2,28 @@ import assert from "node:assert/strict";
 import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 
-async function render(pathname = "/") {
+async function render(pathname) {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}-${pathname}`);
   const { default: worker } = await import(workerUrl.href);
   return worker.fetch(new Request(`http://localhost${pathname}`, { headers: { accept: "text/html" } }), { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } }, { waitUntil() {}, passThroughOnException() {} });
 }
 
-test("server-renders the bilingual control desk", async () => {
-  const response = await render();
-  assert.equal(response.status, 200);
-  const html = await response.text();
-  assert.match(html, /<title>X\/Story Index — Bilingual Story Audit<\/title>/i);
-  assert.match(html, /X\/STORY INDEX/);
-  assert.match(html, /Trace the story\./);
-  assert.match(html, /核对故事背后的帖子。/);
-  assert.match(html, /1\.3k/);
-  assert.match(html, /130/);
-  assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/i);
-  assert.match(html, /og\.png/);
+test("renders separate English and Chinese control desks", async () => {
+  const [english, chinese] = await Promise.all([render("/en"), render("/zh")]);
+  assert.equal(english.status, 200); assert.equal(chinese.status, 200);
+  const en = await english.text(); const zh = await chinese.text();
+  assert.match(en, /Trace the story\./); assert.doesNotMatch(en, /核对背后的帖子。/);
+  assert.match(zh, /追踪故事。/); assert.doesNotMatch(zh, /Trace the story\./);
+  assert.match(en, /中文/); assert.match(zh, /English/); assert.match(en, /og\.png/);
 });
 
-test("server-renders the report and ships evidence downloads", async () => {
-  const response = await render("/report");
-  assert.equal(response.status, 200);
-  const html = await response.text();
-  assert.match(html, /Visible signals/);
-  assert.match(html, /主要发现/);
-  assert.match(html, /1,015,945/);
-  assert.match(html, /Spark Lab signals/);
-  await Promise.all([
-    access(new URL("../public/data/x-story-posts.csv", import.meta.url)),
-    access(new URL("../public/data/x-story-snapshot.json", import.meta.url)),
-    access(new URL("../public/og.png", import.meta.url)),
-  ]);
-  const snapshot = JSON.parse(await readFile(new URL("../public/data/x-story-snapshot.json", import.meta.url), "utf8"));
-  assert.equal(snapshot.posts.length, 130);
+test("renders visualized reports and ships all three evidence downloads", async () => {
+  const [english, chinese] = await Promise.all([render("/en/report"), render("/zh/report")]);
+  assert.equal(english.status, 200); assert.equal(chinese.status, 200);
+  const en = await english.text(); const zh = await chinese.text();
+  assert.match(en, /Visible signals, measured limits/); assert.match(en, /Impression distribution/); assert.match(en, /RAW CSV/);
+  assert.match(zh, /可见信号，明确边界/); assert.match(zh, /曝光量分布/); assert.match(zh, /原始 CSV/);
+  await Promise.all([access(new URL("../public/data/x-story-posts.csv", import.meta.url)),access(new URL("../public/data/x-story-snapshot.json", import.meta.url)),access(new URL("../public/data/x-story-report.md", import.meta.url)),access(new URL("../public/og.png", import.meta.url))]);
+  const snapshot=JSON.parse(await readFile(new URL("../public/data/x-story-snapshot.json",import.meta.url),"utf8"));assert.equal(snapshot.posts.length,130);
 });
