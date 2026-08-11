@@ -42,4 +42,6 @@ KIMI_BASE_URL=https://api.moonshot.ai/v1
 KIMI_MODEL=kimi-k2.5
 ```
 
+For compatibility, the deployed function also accepts the existing server-side variable name `kimi_api`.
+
 The analysis endpoint accepts only a locale and analyzes a fixed server-owned audit payload. It is not an open-ended proxy for the Kimi API.

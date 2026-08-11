@@ -3,7 +3,7 @@ const REPORT={event:"Indie Hackers Gather in Shanghai Despite Typhoon Floods",re
 export default async function handler(request,response){
   if(request.method!=="POST")return response.status(405).json({error:"Method not allowed"});
   const locale=request.body?.locale==="zh"?"zh":"en";
-  const apiKey=process.env.KIMI_API_KEY;
+  const apiKey=process.env.KIMI_API_KEY||process.env.kimi_api;
   if(!apiKey)return response.status(503).json({error:locale==="zh"?"Kimi API Key 尚未在 Vercel 中配置。":"Kimi API key is not configured in Vercel yet."});
   const base=(process.env.KIMI_BASE_URL||"https://api.moonshot.ai/v1").replace(/\/$/,"");
   const model=process.env.KIMI_MODEL||"kimi-k2.5";
