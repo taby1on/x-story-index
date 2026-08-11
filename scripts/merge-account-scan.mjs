@@ -3,7 +3,7 @@ import { readFile, writeFile } from "node:fs/promises";
 const jsonPath = new URL("../public/data/x-story-snapshot.json", import.meta.url);
 const csvPath = new URL("../public/data/x-story-posts.csv", import.meta.url);
 const snapshot = JSON.parse(await readFile(jsonPath, "utf8"));
-const accounts = ["@SparkLab_City","@istabyang","@thisisCHUAN","@_koiwest_","@Dai79603Zi","@RyanMfer","@Yiwei_growth","@WentaoZ4382","@west0nG"];
+const accounts = ["@SparkLab_City","@istabyang","@thisisCHUAN","@_koiwest_","@Dai79603Zi","@RyanMfer","@Yiwei_growth","@WentaoZ4382","@west0nG","@marclou"];
 const additions = [
   {post_id:"2086819921963745458",author_name:"Spark Lab",author_handle:"@SparkLab_City",text:"Catch the highlights from yesterday’s meetup with @marclou in our video recap!",impressions:1108,likes:9,replies:3,reposts:2,spark_lab_visible_match:true,spark_lab_body_match:false},
   {post_id:"2086745104220647788",author_name:"Spark Lab",author_handle:"@SparkLab_City",text:"And big thanks to our team @thisisCHUAN @istabyang @_koiwest_ @Dai79603Zi @RyanMfer and our friends @Yiwei_growth @WentaoZ4382 @west0nG",impressions:89,likes:4,replies:0,reposts:0,spark_lab_visible_match:true,spark_lab_body_match:false},

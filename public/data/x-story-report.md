@@ -73,7 +73,7 @@ Story：[Indie Hackers Gather in Shanghai Despite Typhoon Floods](https://x.com/
 ## 采集口径与限制
 
 - 同时滚动 `Top` 与 `Latest`，按 post ID 合并去重；Top 在 34 轮后、Latest 在 49 轮后满足停止条件。
-- 补充搜索账号：`@SparkLab_City`、`@istabyang`、`@thisisCHUAN`、`@_koiwest_`、`@Dai79603Zi`、`@RyanMfer`、`@Yiwei_growth`、`@WentaoZ4382`、`@west0nG`。候选帖子使用 Story 实体与关键词筛选，再按 post ID 与 Story 时间线去重。
+- 补充搜索账号：`@SparkLab_City`、`@istabyang`、`@thisisCHUAN`、`@_koiwest_`、`@Dai79603Zi`、`@RyanMfer`、`@Yiwei_growth`、`@WentaoZ4382`、`@west0nG`、`@marclou`。候选帖子使用 Story 实体与关键词筛选，再按 post ID 与 Story 时间线去重。
 - 关键账号补充扫描增加了 7 条帖子；CSV 与 JSON 使用 `Key accounts` 来源标签区分。
 - 停止条件是连续 8 轮滚动没有出现新的 post ID。
 - 曝光、点赞和评论均取采集时 X 页面公开展示的 ARIA 指标，不对曝光量做估算。

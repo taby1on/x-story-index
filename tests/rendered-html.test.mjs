@@ -13,7 +13,7 @@ test("renders separate English and Chinese control desks", async () => {
   const [english, chinese] = await Promise.all([render("/en"), render("/zh")]);
   assert.equal(english.status, 200); assert.equal(chinese.status, 200);
   const en = await english.text(); const zh = await chinese.text();
-  assert.match(en, /Trace the story\./); assert.doesNotMatch(en, /核对背后的帖子。/); assert.match(en,/Key accounts/); assert.match(en,/@SparkLab_City/);
+  assert.match(en, /Trace the story\./); assert.doesNotMatch(en, /核对背后的帖子。/); assert.match(en,/Key accounts/); assert.match(en,/@SparkLab_City/); assert.match(en,/@marclou/);
   assert.match(zh, /追踪故事。/); assert.doesNotMatch(zh, /Trace the story\./);
   assert.match(en, /中文/); assert.match(zh, /English/); assert.match(en, /og\.png/);
 });
