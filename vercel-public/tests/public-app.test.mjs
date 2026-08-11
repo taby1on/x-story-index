@@ -18,4 +18,5 @@ test("public build contains bilingual routes, downloads, and Kimi analysis", asy
   assert.match(api, /process\.env\.KIMI_API_KEY\|\|process\.env\.kimi_api/);
   assert.match(api, /api\.moonshot\.cn\/v1/);
   assert.doesNotMatch(config, /cleanUrls/);
+  assert.doesNotMatch(api, /temperature:/);
 });

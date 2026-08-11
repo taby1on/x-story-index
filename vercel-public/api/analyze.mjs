@@ -15,7 +15,7 @@ export default async function handler(request,response){
   try{
     let kimi;let payload;
     for(const base of bases){
-      kimi=await fetch(`${base}/chat/completions`,{method:"POST",headers:{authorization:`Bearer ${apiKey}`,"content-type":"application/json"},body:JSON.stringify({model,messages:[{role:"system",content:"You are a careful media intelligence analyst. Use only the supplied audit data, quantify claims, and state uncertainty."},{role:"user",content:prompt}],temperature:0.2,max_tokens:1400}),signal:controller.signal});
+      kimi=await fetch(`${base}/chat/completions`,{method:"POST",headers:{authorization:`Bearer ${apiKey}`,"content-type":"application/json"},body:JSON.stringify({model,messages:[{role:"system",content:"You are a careful media intelligence analyst. Use only the supplied audit data, quantify claims, and state uncertainty."},{role:"user",content:prompt}],max_tokens:1400}),signal:controller.signal});
       payload=await kimi.json();
       if(kimi.ok||![401,403].includes(kimi.status))break;
     }
