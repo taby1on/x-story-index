@@ -1,0 +1,10 @@
+export const featuredRun={id:"run_2086392303732887996_20260811",storyId:"2086392303732887996",storyUrl:"https://x.com/i/trending/2086392303732887996?s=20",title:"Indie Hackers Gather in Shanghai Despite Typhoon Floods",titleZh:"尽管台风与洪水，独立开发者仍在上海相聚",keyword:"Spark Lab",status:"audited",visiblePosts:130,reportedPosts:"1.3k",totalImpressions:1_015_945,likes:5_878,replies:834,reposts:268,createdAt:"2026-08-11T05:51:10.316Z"};
+export const workflowSteps=[{en:"Submit source",zh:"提交来源",note:"Story URL + keyword / 链接与关键词"},{en:"Collect visible timelines",zh:"采集可见时间线",note:"Top + Latest, deduplicated / 合并去重"},{en:"Record raw evidence",zh:"记录原始证据",note:"Post IDs + ARIA metrics / 帖子与指标快照"},{en:"Audit coverage",zh:"核对覆盖范围",note:"Visible sample vs reported corpus / 样本与标注总量"},{en:"Publish report",zh:"发布分析报告",note:"Bilingual findings + downloads / 双语结论与下载"}];
+export const topPosts=[
+{id:"2086387511807586317",author:"@damonchen",impressions:192234,likes:694,replies:77,text:"Meeting long-time internet friends is amazing",textZh:"与长期在互联网上结识的朋友见面真是太棒了"},
+{id:"2086315104472383847",author:"@marclou",impressions:173516,likes:635,replies:95,text:"MEETUP UPDATE — PLEASE READ",textZh:"活动更新——请务必阅读"},
+{id:"2086653787478102487",author:"@damonchen",impressions:163556,likes:329,replies:43,text:"Why Marc never shipped an AI wrapper",textZh:"为什么 Marc 从未发布 AI 套壳产品"},
+{id:"2086700255949865456",author:"@marclou",impressions:149536,likes:1599,replies:132,text:"I only build 2 types of startups now",textZh:"我现在只做两种类型的初创企业"},
+{id:"2086396907153445174",author:"@marclou",impressions:138046,likes:1195,replies:89,text:"I met my indie hacker hero today",textZh:"今天我见到了我的独立开发者英雄"},
+{id:"2086418004783546696",author:"@marclou",impressions:46733,likes:498,replies:60,text:"Despite the typhoon, almost 100 people joined",textZh:"尽管台风，仍有近百人参加"}];
+export const sparkPosts=[{id:"2086384301285994590",author:"@SparkLab_City",impressions:1746,likes:23,replies:1},{id:"2086748256059728361",author:"@SparkLab_City",impressions:536,likes:12,replies:0},{id:"2086318216125776188",author:"@Yuhao_Guo1018",impressions:526,likes:1,replies:0}];

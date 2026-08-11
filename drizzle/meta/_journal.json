@@ -1,0 +1,13 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1786429378581,
+      "tag": "0000_lyrical_lionheart",
+      "breakpoints": true
+    }
+  ]
+}
