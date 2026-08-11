@@ -15,6 +15,13 @@
       "when": 1786433408909,
       "tag": "0001_special_dakota_north",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1786435249393,
+      "tag": "0002_outgoing_adam_destine",
+      "breakpoints": true
     }
   ]
 }

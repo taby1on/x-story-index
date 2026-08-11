@@ -20,23 +20,40 @@
         "done": true
       }
     },
-    "unique_posts": 130,
+    "unique_posts": 137,
     "stop_rule": "Each tab stopped after 8 consecutive scroll rounds with no new post ID.",
-    "scope_note": "Posts surfaced by X to the logged-in account at collection time; personalized, deleted, or withheld posts may be absent."
+    "scope_note": "Posts surfaced by X to the logged-in account at collection time; personalized, deleted, or withheld posts may be absent.",
+    "account_scan": {
+      "accounts": [
+        "@SparkLab_City",
+        "@istabyang",
+        "@thisisCHUAN",
+        "@_koiwest_",
+        "@Dai79603Zi",
+        "@RyanMfer",
+        "@Yiwei_growth",
+        "@WentaoZ4382",
+        "@west0nG"
+      ],
+      "searched_at_utc": "2026-08-11T08:00:00.000Z",
+      "query_window": "2026-08-08 through 2026-08-11",
+      "new_posts": 7,
+      "scope_note": "Recent posts matched Story entities and keywords; candidates were deduplicated by post ID against Story Top + Latest."
+    }
   },
   "aggregate": {
-    "post_count": 130,
-    "known_impression_posts": 130,
-    "total_impressions": 1015945,
-    "total_likes": 5878,
-    "total_replies": 834,
-    "total_reposts": 268,
-    "engagement_rate": 0.006870450664159969,
-    "spark_lab_visible_match_posts": 3,
-    "spark_lab_visible_match_impressions": 2808,
-    "spark_lab_visible_match_impression_share": 0.0027639291497079076,
-    "spark_lab_body_match_posts": 1,
-    "spark_lab_body_match_impressions": 526
+    "post_count": 137,
+    "known_impression_posts": 137,
+    "total_impressions": 1019573,
+    "total_likes": 5923,
+    "total_replies": 840,
+    "total_reposts": 277,
+    "engagement_rate": 0.006904851344631527,
+    "spark_lab_visible_match_posts": 9,
+    "spark_lab_visible_match_impressions": 6282,
+    "spark_lab_visible_match_impression_share": 0.006161402861786258,
+    "spark_lab_body_match_posts": 4,
+    "spark_lab_body_match_impressions": 2639
   },
   "posts": [
     {
@@ -2940,6 +2957,147 @@
       "bookmarks": 0,
       "spark_lab_body_match": false,
       "spark_lab_visible_match": false
+    },
+    {
+      "post_id": "2086819921963745458",
+      "author_name": "Spark Lab",
+      "author_handle": "@SparkLab_City",
+      "text": "Catch the highlights from yesterday’s meetup with @marclou in our video recap!",
+      "impressions": 1108,
+      "likes": 9,
+      "replies": 3,
+      "reposts": 2,
+      "spark_lab_visible_match": true,
+      "spark_lab_body_match": false,
+      "url": "https://x.com/SparkLab_City/status/2086819921963745458",
+      "published_at": null,
+      "source_tabs": [
+        "Key accounts"
+      ],
+      "bookmarks": 0,
+      "metric_labels": [],
+      "visible_text": "Catch the highlights from yesterday’s meetup with @marclou in our video recap!"
+    },
+    {
+      "post_id": "2086745104220647788",
+      "author_name": "Spark Lab",
+      "author_handle": "@SparkLab_City",
+      "text": "And big thanks to our team @thisisCHUAN @istabyang @_koiwest_ @Dai79603Zi @RyanMfer and our friends @Yiwei_growth @WentaoZ4382 @west0nG",
+      "impressions": 89,
+      "likes": 4,
+      "replies": 0,
+      "reposts": 0,
+      "spark_lab_visible_match": true,
+      "spark_lab_body_match": false,
+      "url": "https://x.com/SparkLab_City/status/2086745104220647788",
+      "published_at": null,
+      "source_tabs": [
+        "Key accounts"
+      ],
+      "bookmarks": 0,
+      "metric_labels": [],
+      "visible_text": "And big thanks to our team @thisisCHUAN @istabyang @_koiwest_ @Dai79603Zi @RyanMfer and our friends @Yiwei_growth @WentaoZ4382 @west0nG"
+    },
+    {
+      "post_id": "2086736242063065116",
+      "author_name": "Spark Lab",
+      "author_handle": "@SparkLab_City",
+      "text": "Big thanks again to @marclou for an unforgettable afternoon of Q&A, stories, and inspiration.",
+      "impressions": 164,
+      "likes": 5,
+      "replies": 0,
+      "reposts": 1,
+      "spark_lab_visible_match": true,
+      "spark_lab_body_match": false,
+      "url": "https://x.com/SparkLab_City/status/2086736242063065116",
+      "published_at": null,
+      "source_tabs": [
+        "Key accounts"
+      ],
+      "bookmarks": 0,
+      "metric_labels": [],
+      "visible_text": "Big thanks again to @marclou for an unforgettable afternoon of Q&A, stories, and inspiration."
+    },
+    {
+      "post_id": "2086731923343446131",
+      "author_name": "Spark Lab",
+      "author_handle": "@SparkLab_City",
+      "text": "A typhoon hit Shanghai, yet we still made the meetup happen. Spark Lab turns your SPARK into reality!",
+      "impressions": 989,
+      "likes": 14,
+      "replies": 2,
+      "reposts": 6,
+      "spark_lab_visible_match": true,
+      "spark_lab_body_match": true,
+      "url": "https://x.com/SparkLab_City/status/2086731923343446131",
+      "published_at": null,
+      "source_tabs": [
+        "Key accounts"
+      ],
+      "bookmarks": 0,
+      "metric_labels": [],
+      "visible_text": "A typhoon hit Shanghai, yet we still made the meetup happen. Spark Lab turns your SPARK into reality!"
+    },
+    {
+      "post_id": "2086725783406690466",
+      "author_name": "Tab Y.",
+      "author_handle": "@istabyang",
+      "text": "Spark Lab 线下标识是购买的 MTR 港铁字体，整体是港铁风格。",
+      "impressions": 24,
+      "likes": 2,
+      "replies": 0,
+      "reposts": 0,
+      "spark_lab_visible_match": true,
+      "spark_lab_body_match": true,
+      "url": "https://x.com/istabyang/status/2086725783406690466",
+      "published_at": null,
+      "source_tabs": [
+        "Key accounts"
+      ],
+      "bookmarks": 0,
+      "metric_labels": [],
+      "visible_text": "Spark Lab 线下标识是购买的 MTR 港铁字体，整体是港铁风格。"
+    },
+    {
+      "post_id": "2086670815668646188",
+      "author_name": "Vincent Z.",
+      "author_handle": "@WentaoZ4382",
+      "text": "Marc Lou said he loves typhoons and heavy rain. Hope everyone who joined can find their own path too.",
+      "impressions": 154,
+      "likes": 3,
+      "replies": 0,
+      "reposts": 0,
+      "spark_lab_visible_match": false,
+      "spark_lab_body_match": false,
+      "url": "https://x.com/WentaoZ4382/status/2086670815668646188",
+      "published_at": null,
+      "source_tabs": [
+        "Key accounts"
+      ],
+      "bookmarks": 0,
+      "metric_labels": [],
+      "visible_text": "Marc Lou said he loves typhoons and heavy rain. Hope everyone who joined can find their own path too."
+    },
+    {
+      "post_id": "2086413995171541325",
+      "author_name": "Vincent Z.",
+      "author_handle": "@WentaoZ4382",
+      "text": "What an unforgettable day. Typhoon outside, water at the entrance, and a room packed with builders. Huge thanks to Spark Lab and Marc.",
+      "impressions": 1100,
+      "likes": 8,
+      "replies": 1,
+      "reposts": 0,
+      "spark_lab_visible_match": true,
+      "spark_lab_body_match": true,
+      "metrics_approximate": true,
+      "url": "https://x.com/WentaoZ4382/status/2086413995171541325",
+      "published_at": null,
+      "source_tabs": [
+        "Key accounts"
+      ],
+      "bookmarks": 0,
+      "metric_labels": [],
+      "visible_text": "What an unforgettable day. Typhoon outside, water at the entrance, and a room packed with builders. Huge thanks to Spark Lab and Marc."
     }
   ]
 }

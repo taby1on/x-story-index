@@ -7,23 +7,23 @@ Story：[Indie Hackers Gather in Shanghai Despite Typhoon Floods](https://x.com/
 
 | 指标 | 结果 |
 |---|---:|
-| Top + Latest 去重 posts | 130 |
-| 总曝光量 | 1,015,945 |
-| 总点赞数 | 5,878 |
-| 总评论数 | 834 |
-| 总转帖数 | 268 |
+| Story 时间线 + 关键账号扫描去重 posts | 137 |
+| 总曝光量 | 1,019,573 |
+| 总点赞数 | 5,923 |
+| 总评论数 | 840 |
+| 总转帖数 | 277 |
 | 整体互动率（点赞+评论+转帖 / 曝光） | 0.69% |
-| 包含 Spark Lab 的可见帖子卡片 | 3 |
-| 上述帖子曝光量 | 2,808 |
-| 上述曝光占全部曝光 | 0.28% |
-| 仅正文严格包含 “Spark Lab” | 1 个 post / 526 曝光 |
+| 包含 Spark Lab 的可见帖子卡片 | 9 |
+| 上述帖子曝光量 | 6,282 |
+| 上述曝光占全部曝光 | 0.62% |
+| 仅正文严格包含 “Spark Lab” | 4 个 posts / 2,639 曝光 |
 
 ## 结论
 
-- 本次共识别 130 个唯一 posts，所有 posts 均取得公开曝光量，合计 **1,015,945**。
+- Top + Latest 首先识别 130 个唯一 posts；随后对 9 个关键账号进行近期相关帖子扫描，找回 7 条遗漏内容。合并去重后共 137 条，合计 **1,019,573** 曝光。
 - 曝光高度集中：最高曝光 post 占 18.92%，前 10 个 posts 合计占 91.61%。均值为 7,815，中位数仅 207，说明少数头部帖子拉高了整体曝光。
-- 按“正文、作者名、handle 或可见引用内容出现 Spark Lab”口径，共 3 个 posts，合计 **2,808 曝光**，占总曝光 0.28%；获得 36 个点赞、1 个评论，互动率 1.32%。
-- 若采用更严格的“仅 post 正文出现 Spark Lab”口径，则只有 1 个 post，曝光为 **526**。两种口径并列给出，避免关键词定义造成误读。
+- 按“正文、作者名、handle 或可见引用内容出现 Spark Lab”口径，共 9 个 posts，合计 **6,282 曝光**，占总曝光 0.62%。
+- 若采用更严格的“仅 post 正文出现 Spark Lab”口径，则为 4 个 posts、**2,639 曝光**。两种口径并列给出，避免关键词定义造成误读。
 - 整体互动率为 0.69%。曝光与互动的分布都应结合头部集中度解读，不能把总量直接视为典型单帖表现。
 
 ## 包含 Spark Lab 的 posts
@@ -33,6 +33,12 @@ Story：[Indie Hackers Gather in Shanghai Despite Typhoon Floods](https://x.com/
 | [2086384301285994590](https://x.com/SparkLab_City/status/2086384301285994590) | @SparkLab_City | 1,746 | 23 | 1 | 是 | We’re live. The meetup w/ @marclou  is happening now! 我们正在直播中。与 @marclou 的见面会现在正在进行中！ |
 | [2086748256059728361](https://x.com/SparkLab_City/status/2086748256059728361) | @SparkLab_City | 536 | 12 | 0 | 是 | The typhoon tried to stop us. It didn’t.   Almost 100 indie hackers showed up and made thi |
 | [2086318216125776188](https://x.com/Yuhao_Guo1018/status/2086318216125776188) | @Yuhao_Guo1018 | 526 | 1 | 0 | 是 | Hey, how about we change to another venue for the meetup?!  We're 5 minutes from Spark Lab |
+| [2086819921963745458](https://x.com/SparkLab_City/status/2086819921963745458) | @SparkLab_City | 1,108 | 9 | 3 | 可见卡片 | Meetup video recap |
+| [2086745104220647788](https://x.com/SparkLab_City/status/2086745104220647788) | @SparkLab_City | 89 | 4 | 0 | 可见卡片 | Thanks to the organizing team |
+| [2086736242063065116](https://x.com/SparkLab_City/status/2086736242063065116) | @SparkLab_City | 164 | 5 | 0 | 可见卡片 | Marc's indie hacking journey |
+| [2086731923343446131](https://x.com/SparkLab_City/status/2086731923343446131) | @SparkLab_City | 989 | 14 | 2 | 正文 | Typhoon, flood, and the meetup |
+| [2086725783406690466](https://x.com/istabyang/status/2086725783406690466) | @istabyang | 24 | 2 | 0 | 正文 | Spark Lab 的港铁风格线下标识 |
+| [2086413995171541325](https://x.com/WentaoZ4382/status/2086413995171541325) | @WentaoZ4382 | 约 1,100 | 8 | 1 | 正文 | Typhoon outside, room packed with builders |
 
 ## 曝光量最高的 10 个 posts
 
@@ -67,6 +73,8 @@ Story：[Indie Hackers Gather in Shanghai Despite Typhoon Floods](https://x.com/
 ## 采集口径与限制
 
 - 同时滚动 `Top` 与 `Latest`，按 post ID 合并去重；Top 在 34 轮后、Latest 在 49 轮后满足停止条件。
+- 补充搜索账号：`@SparkLab_City`、`@istabyang`、`@thisisCHUAN`、`@_koiwest_`、`@Dai79603Zi`、`@RyanMfer`、`@Yiwei_growth`、`@WentaoZ4382`、`@west0nG`。候选帖子使用 Story 实体与关键词筛选，再按 post ID 与 Story 时间线去重。
+- 关键账号补充扫描增加了 7 条帖子；CSV 与 JSON 使用 `Key accounts` 来源标签区分。
 - 停止条件是连续 8 轮滚动没有出现新的 post ID。
 - 曝光、点赞和评论均取采集时 X 页面公开展示的 ARIA 指标，不对曝光量做估算。
 - “所有 posts”表示本次采集时 X 向该登录账号实际加载的 posts；个性化排序、删除、地域限制或账号权限仍可能使某些 posts 不可见。
