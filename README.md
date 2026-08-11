@@ -43,5 +43,6 @@ KIMI_MODEL=kimi-k2.5
 ```
 
 For compatibility, the deployed function also accepts the existing server-side variable name `kimi_api`.
+When `KIMI_BASE_URL` is not set, it tries the China and international Moonshot API endpoints in sequence.
 
 The analysis endpoint accepts only a locale and analyzes a fixed server-owned audit payload. It is not an open-ended proxy for the Kimi API.

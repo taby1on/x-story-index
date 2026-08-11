@@ -5,14 +5,20 @@ export default async function handler(request,response){
   const locale=request.body?.locale==="zh"?"zh":"en";
   const apiKey=process.env.KIMI_API_KEY||process.env.kimi_api;
   if(!apiKey)return response.status(503).json({error:locale==="zh"?"Kimi API Key 尚未在 Vercel 中配置。":"Kimi API key is not configured in Vercel yet."});
-  const base=(process.env.KIMI_BASE_URL||"https://api.moonshot.ai/v1").replace(/\/$/,"");
+  const bases=process.env.KIMI_BASE_URL
+    ?[process.env.KIMI_BASE_URL.replace(/\/$/,"")]
+    :["https://api.moonshot.cn/v1","https://api.moonshot.ai/v1"];
   const model=process.env.KIMI_MODEL||"kimi-k2.5";
   const language=locale==="zh"?"Simplified Chinese":"English";
   const prompt=`Analyze this fixed X Trending Event audit in ${language}. Produce: (1) a concise executive summary, (2) 4 evidence-backed findings, (3) a Spark Lab visibility assessment, (4) 3 limitations, and (5) 3 recommended next research actions. Distinguish audited-sample facts from inference. Never claim that 137 posts represent all 1.3k reported posts. Use plain text with short headings.\n\nAUDIT DATA\n${JSON.stringify(REPORT)}`;
   const controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),45000);
   try{
-    const kimi=await fetch(`${base}/chat/completions`,{method:"POST",headers:{authorization:`Bearer ${apiKey}`,"content-type":"application/json"},body:JSON.stringify({model,messages:[{role:"system",content:"You are a careful media intelligence analyst. Use only the supplied audit data, quantify claims, and state uncertainty."},{role:"user",content:prompt}],temperature:0.2,max_tokens:1400}),signal:controller.signal});
-    const payload=await kimi.json();
+    let kimi;let payload;
+    for(const base of bases){
+      kimi=await fetch(`${base}/chat/completions`,{method:"POST",headers:{authorization:`Bearer ${apiKey}`,"content-type":"application/json"},body:JSON.stringify({model,messages:[{role:"system",content:"You are a careful media intelligence analyst. Use only the supplied audit data, quantify claims, and state uncertainty."},{role:"user",content:prompt}],temperature:0.2,max_tokens:1400}),signal:controller.signal});
+      payload=await kimi.json();
+      if(kimi.ok||![401,403].includes(kimi.status))break;
+    }
     if(!kimi.ok)return response.status(502).json({error:payload?.error?.message||`Kimi request failed (${kimi.status})`});
     const analysis=payload?.choices?.[0]?.message?.content;
     if(!analysis)return response.status(502).json({error:"Kimi returned an empty analysis."});

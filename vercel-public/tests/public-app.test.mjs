@@ -16,4 +16,6 @@ test("public build contains bilingual routes, downloads, and Kimi analysis", asy
   assert.match(app, /x-story-posts\.csv/);
   assert.deepEqual(JSON.parse(config).rewrites.length, 4);
   assert.match(api, /process\.env\.KIMI_API_KEY\|\|process\.env\.kimi_api/);
+  assert.match(api, /api\.moonshot\.cn\/v1/);
+  assert.doesNotMatch(config, /cleanUrls/);
 });
