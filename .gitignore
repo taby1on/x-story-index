@@ -30,6 +30,7 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!vercel-public/.env.example
 
 # vercel
 .vercel
@@ -38,3 +39,7 @@ yarn-error.log*
 /.wrangler/
 /outputs/
 /work/
+/vercel-public/dist/
+/vercel-public/.npm-cache/
+/vercel-public/.vercel-cache/
+/vercel-public/.vercel-config/

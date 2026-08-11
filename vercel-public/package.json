@@ -1,0 +1,11 @@
+{
+  "name": "x-pr-stunt-index-public",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "npm run build && node --test tests/public-app.test.mjs"
+  },
+  "engines": { "node": ">=20" }
+}

@@ -1,0 +1,12 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/en", "destination": "/index.html" },
+    { "source": "/zh", "destination": "/index.html" },
+    { "source": "/en/report", "destination": "/index.html" },
+    { "source": "/zh/report", "destination": "/index.html" }
+  ],
+  "redirects": [{ "source": "/", "destination": "/en", "permanent": false }],
+  "headers": [{ "source": "/api/(.*)", "headers": [{ "key": "X-Content-Type-Options", "value": "nosniff" }, { "key": "Cache-Control", "value": "no-store" }] }]
+}

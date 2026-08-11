@@ -1,4 +1,4 @@
-# X/Story Index
+# X PR-STUNT INDEX
 
 A reusable X Story analytics desk with separate English and Chinese interfaces, durable run records, visual reports and downloadable evidence.
 
@@ -29,3 +29,17 @@ npm run db:generate
 npm run lint
 npm test
 ```
+
+## Public Vercel edition
+
+`vercel-public/` is a separate, stateless public edition. It preserves the English and Chinese landing/report routes, visual report, evidence downloads, and adds server-side Kimi analysis without exposing the API key to the browser.
+
+Configure these encrypted Vercel environment variables before using AI analysis:
+
+```text
+KIMI_API_KEY=your_key
+KIMI_BASE_URL=https://api.moonshot.ai/v1
+KIMI_MODEL=kimi-k2.5
+```
+
+The analysis endpoint accepts only a locale and analyzes a fixed server-owned audit payload. It is not an open-ended proxy for the Kimi API.
