@@ -18,6 +18,8 @@ test("public build contains bilingual queue, downloads, and Kimi analysis", asyn
   assert.match(app, /id=\"run-form\"/);
   assert.match(app, /\/api\/runs/);
   assert.match(app, /Recent backend records/);
+  assert.match(app, /designed by/);
+  assert.match(app, /https:\/\/linktr\.ee\/tabyang/);
   assert.match(app, /\/api\/download/);
   assert.deepEqual(JSON.parse(config).rewrites.length, 4);
   assert.match(api, /process\.env\.KIMI_API_KEY\|\|process\.env\.kimi_api/);
