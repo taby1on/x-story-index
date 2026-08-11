@@ -3,7 +3,7 @@ export type Locale = "en" | "zh";
 export const copy = {
   en: {
     records: "Records", report: "Report", language: "中文", eyebrow: "PUBLIC SIGNAL RESEARCH TOOL",
-    title: "Trace the X Trending Event", subtitle: "Audit the posts behind it.", note: "Collect → Record → Analyze. Every number keeps its scope and limitations.",
+    title: "Trace X Trending Events", subtitle: "Audit the posts behind it.", note: "Collect → Record → Analyze. Every number keeps its scope and limitations.",
     newRun: "01 / NEW RUN", storyUrl: "X Story URL", keyword: "Analysis keyword", accounts: "Key accounts (one handle per line)", queue: "QUEUE RUN ↗", queuing: "RECORDING…",
     worker: "This desk records requests and reports. Collection runs in a controlled worker with an authenticated X session.",
     queued: "Run recorded. The collector can now process it.", failed: "Unable to create run.", workflow: "02 / WORKFLOW",
