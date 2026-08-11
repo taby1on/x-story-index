@@ -39,7 +39,7 @@ Configure these encrypted Vercel environment variables before using AI analysis:
 ```text
 KIMI_API_KEY=your_key
 KIMI_BASE_URL=https://api.moonshot.ai/v1
-KIMI_MODEL=kimi-k2.5
+KIMI_MODEL=moonshot-v1-8k
 ```
 
 For compatibility, the deployed function also accepts the existing server-side variable name `kimi_api`.

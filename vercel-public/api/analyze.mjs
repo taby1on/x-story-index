@@ -8,7 +8,7 @@ export default async function handler(request,response){
   const bases=process.env.KIMI_BASE_URL
     ?[process.env.KIMI_BASE_URL.replace(/\/$/,"")]
     :["https://api.moonshot.cn/v1","https://api.moonshot.ai/v1"];
-  const model=process.env.KIMI_MODEL||"kimi-k2.5";
+  const model=process.env.KIMI_MODEL||"moonshot-v1-8k";
   const language=locale==="zh"?"Simplified Chinese":"English";
   const prompt=`Analyze this fixed X Trending Event audit in ${language}. Produce: (1) a concise executive summary, (2) 4 evidence-backed findings, (3) a Spark Lab visibility assessment, (4) 3 limitations, and (5) 3 recommended next research actions. Distinguish audited-sample facts from inference. Never claim that 137 posts represent all 1.3k reported posts. Use plain text with short headings.\n\nAUDIT DATA\n${JSON.stringify(REPORT)}`;
   const controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),45000);
