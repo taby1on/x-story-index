@@ -1,100 +1,44 @@
-# vinext-starter
+# X/Story Index
 
-A clean full-stack starter running on
-[vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and
-Drizzle support.
+A bilingual archive for collecting, recording, and analyzing visible X Story signals.  
+用于采集、记录与分析 X Story 可见信号的中英双语档案站。
 
-## Prerequisites
+## Product surface / 产品页面
 
-- Node.js `>=22.13.0`
+- `/` — Control Desk / 任务控制台：提交 Story URL 与关键词，调用后端创建运行记录。
+- `/records` — Run Records / 运行记录：从 D1 数据库读取持久化任务历史。
+- `/report` — Analysis Report / 分析报告：展示覆盖范围、曝光、互动、头部帖子及 Spark Lab 相关信号。
+- `/api/runs` — Backend API / 后端接口：`GET` 查询记录，`POST` 校验并创建任务。
 
-## Quick Start
+The first featured audit covers the X Story **“Indie Hackers Gather in Shanghai Despite Typhoon Floods.”** X reports approximately `1.3k posts`; its Top + Latest timelines exposed 130 unique posts to the audited account. The site labels this correctly as a visible sample rather than a complete census.
+
+首期报告审计了 **“Indie Hackers Gather in Shanghai Despite Typhoon Floods”**。X 卡片标注约 `1.3k posts`，但 Top + Latest 时间线仅向审计账号展示 130 条唯一帖子；站点将其明确标记为“可见样本”，而非完整普查。
+
+## Data / 数据
+
+The auditable CSV and JSON snapshot are shipped under `public/data/` and can be downloaded from the report page. Public X metrics are time-sensitive; the snapshot retains collection time and per-post evidence.
+
+逐帖 CSV 与 JSON 快照保存在 `public/data/`，可从报告页下载。X 指标会随时间变化，因此快照保留采集时间和逐帖证据。
+
+## Local development / 本地开发
+
+Requires Node.js `>=22.13.0`.
 
 ```bash
 npm install
 npm run dev
-npm run build
+npm run lint
+npm test
 ```
 
-This starter does not use `wrangler.jsonc`.
+## Persistence / 持久化
 
-## Included Shape
+Run records are stored in Cloudflare D1. The Drizzle schema is in `db/schema.ts`; generated migrations are in `drizzle/`. Runtime initialization uses prepared statements and creates the seed audit record idempotently.
 
-- edit site code under `app/`
-- `.openai/hosting.json` declares optional Sites D1 and R2 bindings
-- `vite.config.ts` simulates declared bindings for local development
-- `db/schema.ts` starts intentionally empty
-- `examples/d1/` contains an optional D1 example surface
-- `drizzle.config.ts` supports local migration generation when needed
+运行记录存储在 Cloudflare D1。Drizzle 数据结构位于 `db/schema.ts`，迁移文件位于 `drizzle/`；运行时使用预编译 SQL，并以幂等方式写入首期审计记录。
 
-## Workspace Auth Headers
+## Important limitation / 重要限制
 
-Signed-in visitors receive both `oai-authenticated-user-id` and `oai-authenticated-user-email`. Private Sites require every visitor to sign in; public Sites may also have anonymous visitors, for whom neither header is present.
+The hosted backend records run requests and serves reports. Authenticated X browser collection remains a controlled worker because the Story page requires a signed-in session and does not expose the full 1.3k-post cluster through its public timelines.
 
-The user ID is stable for the same user on the same Site and different across Sites. Email and name are intended for display or contact purposes.
-
-SIWC-authenticated workspace sites may also receive
-`oai-authenticated-user-full-name` when the user's SIWC profile has a non-empty
-`name` claim. The full-name value is percent-encoded UTF-8 and is accompanied by
-`oai-authenticated-user-full-name-encoding: percent-encoded-utf-8`.
-
-Treat the full name as optional and fall back to email when it is absent:
-
-```tsx
-import { headers } from "next/headers";
-
-export default async function Home() {
-  const requestHeaders = await headers();
-  const userId = requestHeaders.get("oai-authenticated-user-id");
-  const email = requestHeaders.get("oai-authenticated-user-email");
-  const encodedFullName = requestHeaders.get("oai-authenticated-user-full-name");
-  const fullName =
-    encodedFullName &&
-    requestHeaders.get("oai-authenticated-user-full-name-encoding") ===
-      "percent-encoded-utf-8"
-      ? decodeURIComponent(encodedFullName)
-      : null;
-
-  const displayName = fullName ?? email;
-  // ...
-}
-```
-
-## Optional Dispatch-Owned ChatGPT Sign-In
-
-Import the ready-to-use helpers from `app/chatgpt-auth.ts` when the site needs
-optional or required ChatGPT sign-in:
-
-- Use `getChatGPTUser()` for optional signed-in UI.
-- Use `requireChatGPTUser(returnTo)` for server-rendered pages that should send
-  anonymous visitors through Sign in with ChatGPT.
-- Use `chatGPTSignInPath(returnTo)` and `chatGPTSignOutPath(returnTo)` for
-  browser links or actions.
-- Pass a same-origin relative `returnTo` path for the destination after sign-in
-  or sign-out. The helper validates and safely encodes it.
-- Mark protected pages with `export const dynamic = "force-dynamic"` because
-  they depend on per-request identity headers.
-
-Dispatch owns `/signin-with-chatgpt`, `/signout-with-chatgpt`, `/callback`, the
-OAuth cookies, and identity header injection. Do not implement app routes for
-those reserved paths. Routes that do not import and call the helper remain
-anonymous-compatible.
-
-SIWC establishes identity only; it does not prove workspace membership. Use the
-Sites hosting platform's access policy controls for workspace-wide restrictions,
-or enforce explicit server-side membership or allowlist checks.
-
-Use SIWC for account pages, user-specific dashboards, saved records, and write
-actions tied to the current ChatGPT user. Leave public content anonymous.
-
-## Useful Commands
-
-- `npm run dev`: start local development
-- `npm run build`: verify the vinext build output
-- `npm test`: build the starter and verify its rendered loading skeleton
-- `npm run db:generate`: generate Drizzle migrations after schema changes
-
-## Learn More
-
-- [vinext Documentation](https://github.com/cloudflare/vinext)
-- [Drizzle D1 Guide](https://orm.drizzle.team/docs/get-started/d1-new)
+线上后端负责记录任务和展示报告。由于 Story 页面依赖登录态，且公开时间线没有暴露完整 1.3k 关联语料，X 浏览器采集仍由受控工作节点执行。
