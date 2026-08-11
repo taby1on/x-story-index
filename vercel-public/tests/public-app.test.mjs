@@ -19,5 +19,6 @@ test("public build contains bilingual routes, downloads, and Kimi analysis", asy
   assert.match(api, /api\.moonshot\.cn\/v1/);
   assert.doesNotMatch(config, /cleanUrls/);
   assert.doesNotMatch(api, /temperature:/);
-  assert.match(api, /moonshot-v1-8k/);
+  assert.match(api, /\/models/);
+  assert.match(api, /discoveredModel/);
 });
