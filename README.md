@@ -1,4 +1,4 @@
-# X/Story Index
+# X PR-STUNT INDEX
 
 A reusable X Story analytics desk with separate English and Chinese interfaces, durable run records, visual reports and downloadable evidence.
 
@@ -29,3 +29,27 @@ npm run db:generate
 npm run lint
 npm test
 ```
+
+## Public Vercel edition
+
+`vercel-public/` is the public entry point. Visitors can submit any X Trending Event URL, keyword and key-account watchlist, then follow the queued run to its report. Its serverless routes proxy the durable D1 queue and R2 artifacts from the private collector backend; the Spark Lab audit appears as one featured record rather than the homepage's only dataset.
+
+The current authenticated collector remains a controlled worker: the public site queues work but does not itself hold an X login session. Queued reports update after that worker uploads the evidence.
+
+Configure these encrypted Vercel environment variables before using AI analysis:
+
+```text
+KIMI_API_KEY=your_key
+KIMI_BASE_URL=https://api.moonshot.ai/v1
+KIMI_MODEL=
+RUNS_BACKEND_URL=https://x-story-index.tabyi0n.chatgpt.site
+SITES_BACKEND_BYPASS_TOKEN=server_only_bypass_token
+```
+
+For compatibility, the deployed function also accepts the existing server-side variable name `kimi_api`.
+When `KIMI_BASE_URL` is not set, it tries the China and international Moonshot API endpoints in sequence.
+When `KIMI_MODEL` is blank, the function discovers and caches an available model for that API key.
+
+`SITES_BACKEND_BYPASS_TOKEN` is sensitive and server-only. It authenticates the Vercel run, download and dynamic-analysis proxies to the private Sites backend; it is never sent to the browser.
+
+The analysis endpoint accepts only a locale and validated run ID, then builds its prompt from the corresponding server-owned audit data. It is not an open-ended proxy for the Kimi API.
